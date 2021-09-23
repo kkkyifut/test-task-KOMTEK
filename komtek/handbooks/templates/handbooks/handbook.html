@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Справочник{% endblock %}
+{% block header %}Справочник и его элементы{% endblock %}
+{% block content %}
+
+<div class="container">
+
+      <p class="lead"><a href="{% url 'handbooks:handbooks' %}">Все справочники</a></p>
+
+  <div class="card mb-3 mt-1 shadow-sm">
+    <div class="col-md-9">
+      <div class="card-body">
+        <p class="card-text">
+        <h6>{{ handbook.name }}</h6>
+        <p>{{ handbook.text }}</p>
+        <p>{{ handbook.description }}</p>
+        <p>Версия: {{ handbook.version }}</p>
+        </p>
+        <hr>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">{{ handbook.pub_date|date:"d E Y" }} г.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% for item in page %}
+  <div class="card mb-3 mt-1 shadow-sm">
+    <div class="col-md-9">
+      <div class="card-body">
+        <p class="card-text">
+        <p>{{ item.handbook }}</p>
+        <p>{{ item.code }}</p>
+        <p>{{ item.value }}</p>
+        </p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  {% include "misc/paginator.html" %}
+</div>
+
+{% endblock %}

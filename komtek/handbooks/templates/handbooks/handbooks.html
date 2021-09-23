@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Справочники{% endblock %}
+{% block header %}Все справочники{% endblock %}
+{% block content %}
+
+<div class="container">
+
+  {% for handbook in page %}
+  {% include "handbooks/card_handbook.html" %}
+  {% endfor %}
+
+  {% include "misc/paginator.html" %}
+</div>
+
+{% endblock %}

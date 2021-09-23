@@ -1,0 +1,16 @@
+<div class="card mb-3 mt-1 shadow-sm">
+  <div class="col-md-9">
+    <div class="card-body">
+      <p class="card-text">
+      <p class="lead"><a href="{% url 'handbooks:handbook_view' handbook.id %}">{{ handbook.name }}</a></p>
+      <h6>{{ handbook.text|linebreaksbr }}</h6>
+      <p>{{ handbook.description|linebreaksbr }}</p>
+      <p>Версия: {{ handbook.version|linebreaksbr }}</p>
+      </p>
+      <hr>
+      <div class="d-flex justify-content-between align-items-center">
+        <small class="text-muted">{{ handbook.pub_date|date:"d E Y" }} г.</small>
+      </div>
+    </div>
+  </div>
+</div>
