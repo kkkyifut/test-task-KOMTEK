@@ -7,6 +7,13 @@
   <hr>
   <p>Не желаете ли перейти к справочникам?</p>
   <p class="lead"><a href="{% url 'handbooks:handbooks' %}">Справочники</a></p>
+  <br>
+  <hr>
+  <p>Ещё у нас есть API:</p>
+  <p class="lead"><a href="api/v1/handbooks/">api v1</a></p>
+  <p>Документация:</p>
+  <p class="lead"><a href="{% url 'schema-swagger-ui' %}" target="_blank">Swagger</a></p>
+  <p class="lead"><a href="{% url 'schema-redoc' %}" target="_blank">Redoc</a></p>
 </div>
 
 {% endblock %}

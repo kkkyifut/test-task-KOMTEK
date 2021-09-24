@@ -1,12 +1,9 @@
-from django.conf.urls import handler404, handler500
+from django.conf.urls import handler404, handler500, url
 from django.contrib import admin
 from django.urls import include, path
-
-from rest_framework import permissions
-from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from django.conf.urls import url
-
+from drf_yasg.views import get_schema_view
+from rest_framework import permissions
 
 handler404 = 'handbooks.views.page_not_found'
 handler500 = 'handbooks.views.server_error'
@@ -14,6 +11,9 @@ handler500 = 'handbooks.views.server_error'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls', namespace='api-v1')),
+    path('auth/', include('djoser.urls')),
+    # JWT-эндпоинты, для управления JWT-токенами:
+    path('auth/', include('djoser.urls.jwt')),
     path('', include('handbooks.urls', namespace='handbooks')),
 ]
 
